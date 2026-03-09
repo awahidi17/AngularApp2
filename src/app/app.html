@@ -1,0 +1,47 @@
+<div class="shell">
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">AngularApp2</p>
+      <h1>Task Tracker Dashboard</h1>
+      <p class="intro">
+        Plan your day, keep track, and finish tasks with a clean workflow.
+      </p>
+    </div>
+
+    <div class="hero-badges">
+
+    </div>
+  </header>
+
+  <section class="layout">
+    <aside class="left-column">
+      <section class="panel panel-form">
+        <div class="panel-head">
+          <h2>Add a task</h2>
+          <p>Create a title, set a priority, and choose a due date.</p>
+        </div>
+        <app-task-form></app-task-form>
+      </section>
+
+      <section class="panel panel-stats">
+        <div class="panel-head">
+          <h2>Progress</h2>
+          <p>Live counts update from the shared task service.</p>
+        </div>
+        <app-stats-panel></app-stats-panel>
+      </section>
+    </aside>
+
+    <section class="panel panel-list right-column">
+      <div class="panel-head">
+        <h2>Today’s tasks</h2>
+        <p>Filter tasks and clear completed items when needed.</p>
+      </div>
+      <app-task-list></app-task-list>
+    </section>
+  </section>
+
+  <footer class="footer">
+    <span>Built by Ahmad Wahidi</span>
+  </footer>
+</div>

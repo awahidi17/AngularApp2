@@ -1,0 +1,45 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="task-form">
+  <div class="field-group">
+    <label for="title">Task title</label>
+    <input
+      id="title"
+      type="text"
+      formControlName="title"
+      placeholder="Example: Finish Angular service"
+    />
+    <small class="error" *ngIf="form.controls.title.invalid && form.controls.title.touched">
+      Enter at least 2 characters.
+    </small>
+  </div>
+
+  <div class="field-row">
+    <div class="field-group">
+      <label for="priority">Priority</label>
+      <select id="priority" formControlName="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label for="dueDate">Due date</label>
+      <input id="dueDate" type="date" formControlName="dueDate" />
+    </div>
+  </div>
+
+  <div class="field-group">
+    <label for="description">Description</label>
+    <textarea
+      id="description"
+      rows="4"
+      formControlName="description"
+      placeholder="Add extra details if needed"
+    ></textarea>
+  </div>
+
+  <div class="button-row">
+    <button type="button" class="secondary-btn" (click)="clearForm()">Clear</button>
+    <button type="submit" class="primary-btn" [disabled]="form.invalid">Add Task</button>
+  </div>
+</form>

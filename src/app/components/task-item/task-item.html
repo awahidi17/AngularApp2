@@ -1,0 +1,24 @@
+<div
+  class="task-card"
+  appTaskStatus
+  [appTaskStatusCompleted]="task.completed"
+  [appTaskStatusPriority]="task.priority"
+>
+  <div class="task-main">
+    <label class="task-title">
+      <input type="checkbox" [checked]="task.completed" (change)="toggle.emit(task.id)" />
+      <span>{{ task.title }}</span>
+    </label>
+
+    <button type="button" class="remove-btn" (click)="remove.emit(task.id)">Remove</button>
+  </div>
+
+  <div class="task-meta">
+    <span class="meta-pill due">{{ task.dueDate | dueDateLabel }}</span>
+    <span class="meta-pill priority">{{ task.priority | titlecase }} priority</span>
+  </div>
+
+  <p class="task-desc" *ngIf="task.description">
+    {{ task.description | truncate: 120 }}
+  </p>
+</div>

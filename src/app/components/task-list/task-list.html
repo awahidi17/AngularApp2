@@ -1,0 +1,27 @@
+<div class="toolbar">
+  <div class="toolbar-group">
+    <label for="filter">View</label>
+    <select id="filter" [(ngModel)]="filter" (change)="applyFilter()">
+      <option value="all">All Tasks</option>
+      <option value="active">Active</option>
+      <option value="completed">Completed</option>
+      <option value="overdue">Overdue</option>
+    </select>
+  </div>
+
+  <button class="clear-btn" (click)="clearCompleted()">Clear Completed</button>
+</div>
+
+<div class="empty-state" *ngIf="(filteredTasks$ | async)?.length === 0">
+  <h3>No tasks here yet</h3>
+  <p>Add a new task to get started.</p>
+</div>
+
+<div class="task-list">
+  <app-task-item
+    *ngFor="let task of filteredTasks$ | async; trackBy: trackById"
+    [task]="task"
+    (toggle)="toggle($event)"
+    (remove)="remove($event)"
+  ></app-task-item>
+</div>
