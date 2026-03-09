@@ -13,13 +13,6 @@ A task tracker built with Angular standalone components, a shared service, custo
 - Custom pipe for long description trimming
 - Custom directive for task card styling
 
-## Run the project
-
-```bash
-npm install
-ng serve --open
-```
-
 ## Main Angular topics used
 
 - Standalone components
